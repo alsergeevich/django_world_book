@@ -19,7 +19,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
-django_heroku.settings(locals())
+
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = '*k_bo1zij-=01)thycip29+8=9=qa5q4d9m(0=o&+z0bz#x62_'
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '*k_bo1zij-=01)thycip29+8=9=qa5q4d9m(0=o&+z0bz#x62_')
@@ -128,3 +128,4 @@ db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+django_heroku.settings(locals())
